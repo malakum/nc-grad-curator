@@ -1,25 +1,37 @@
 import React, { useEffect, useState } from "react";
-//import { getTagList } from "../api";
-import  getTagList from "../api";
-//import { Link } from "react-router-dom";
+import {fetchData} from "../utils/api";
 
 
+const NhmTagList: React.FC = () => {
+  // Typing the state as an array of User objects
+  const [tagList, setTagList] = useState<String[]>([]);
 
-const nhmTagList:React.FC = () => {
-  // Declare a state that can be either a string or null
-  const [message, setMessage] = useState<string | []>([]);
 
-  const showMessage = () => {
-    setMessage ('getTagList');
-  };
+  // Fetch the users' data when the component is first rendered
+  useEffect(() => {
+   fetchData().then((tagListFromApi:any) => {
+    console.log('taglist from api'+tagListFromApi);
+      setTagList(tagListFromApi);
+    });
+  }, []);
 
-    
   return (
-    <div>
-      {message ? <p>{message}</p> : <p>No message</p>}
-      <button onClick={showMessage}>Show Message</button>
-    </div>
+    <ul> tagList 
+       {tagList.map((tag, index) => (
+          <li key={index}>
+            {/* Render each tag's name */}
+            {tag}
+     
+        </li>
+      ))}
+      </ul>
   );
 };
 
-export default nhmTagList;
+//       {message ? <p>{message}</p> : <p>No message</p>}
+//       <button onClick={showMessage}>Show Message</button>
+//     </div>
+//   );
+// };
+
+export default NhmTagList;

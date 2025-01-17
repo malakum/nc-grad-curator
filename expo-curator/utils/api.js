@@ -36,9 +36,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.fetchData = fetchData;
+exports.fetchData2 = fetchData2;
+exports.fetchData3 = fetchData3;
 var axios_1 = require("axios");
 var getTagList = [];
-//interface nhmTagList  = [];
+var getPackageList = [];
+var getGroupList = [];
 function fetchData() {
     return __awaiter(this, void 0, void 0, function () {
         var url, response1, error_1;
@@ -52,9 +56,8 @@ function fetchData() {
                     return [4 /*yield*/, axios_1.default.get(url + '/action/tag_list')];
                 case 2:
                     response1 = _a.sent();
-                    console.log(response1.data); // Handle the data
-                    getTagList = response1.data.result;
-                    console.log('nhm tag list' + getTagList);
+                    getTagList = response1.data.result.slice(0, 10);
+                    console.log("tag list" + getTagList);
                     return [2 /*return*/, getTagList];
                 case 3:
                     error_1 = _a.sent();
@@ -66,29 +69,56 @@ function fetchData() {
     });
 }
 fetchData();
-exports.default = getTagList;
-// const nhmApi = axios.create({
-//     baseURL: "https://data.nhm.ac.uk/api/3"
-// });
-// console.log(nhmApi);
-// export const getTagList = () => {
-//     return nhmApi.get("/action/tag_list").then(res => {
-//         //result
-//         console.log('data result'+res.data.result);
-//         return res.data.result;
-//     })
-// }
-// export const getPackageList = () => {
-//     return newsApi.get("/action/package_list").then(res => {
-//         //result
-//         console.log(res.data);
-//         return res.data.package_list;
-//     })
-// }
-// export const getGroupList = () => {
-//     return newsApi.get("/action/group_list").then(res => {
-//         console.log(res.data);
-//         //result
-//         return res.data.group_list;
-//     })
-// }
+//export default fetchData;
+function fetchData2() {
+    return __awaiter(this, void 0, void 0, function () {
+        var url, response1, error_2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    url = 'https://data.nhm.ac.uk/api/3';
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, axios_1.default.get(url + '/action/package_list')];
+                case 2:
+                    response1 = _a.sent();
+                    getPackageList = response1.data.result.slice(0, 10);
+                    console.log("package list" + getPackageList);
+                    return [2 /*return*/, getPackageList];
+                case 3:
+                    error_2 = _a.sent();
+                    console.error('Error fetching data:', error_2);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+fetchData2();
+function fetchData3() {
+    return __awaiter(this, void 0, void 0, function () {
+        var url, response1, error_3;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    url = 'https://data.nhm.ac.uk/api/3';
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, axios_1.default.get(url + '/action/group_list')];
+                case 2:
+                    response1 = _a.sent();
+                    getGroupList = response1.data.result.slice(0, 10);
+                    console.log("group list" + getGroupList);
+                    return [2 /*return*/, getGroupList];
+                case 3:
+                    error_3 = _a.sent();
+                    console.error('Error fetching data:', error_3);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+fetchData3();
