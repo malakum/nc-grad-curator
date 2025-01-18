@@ -1,11 +1,4 @@
-// const NhmPackageList = () => {
-//     return (
-        
-//         <div>NHM Package List</div>
-        
-//     )
-// }
-
+     
 import React, { useEffect, useState } from "react";
 import {fetchData3} from "../utils/api";
 

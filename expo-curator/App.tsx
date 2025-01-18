@@ -4,6 +4,7 @@ import Header from './components/Header';
 import NhmTagList  from './components/NhmTagList';
 import NhmGroupList from './components/NhmGroupList';
 import NhmPackageList from './components/NhmPackageList';
+import MuseumObjects from './components/MuseumObjects';
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <NhmTagList />
       <NhmGroupList />
       <NhmPackageList />
+      <MuseumObjects />
       <StatusBar style="auto" />
     </View>
   );

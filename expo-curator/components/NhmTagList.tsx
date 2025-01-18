@@ -6,8 +6,6 @@ const NhmTagList: React.FC = () => {
   // Typing the state as an array of User objects
   const [tagList, setTagList] = useState<String[]>([]);
 
-
-  // Fetch the users' data when the component is first rendered
   useEffect(() => {
    fetchData().then((tagListFromApi:any) => {
     console.log('taglist from api'+tagListFromApi);
@@ -28,10 +26,5 @@ const NhmTagList: React.FC = () => {
   );
 };
 
-//       {message ? <p>{message}</p> : <p>No message</p>}
-//       <button onClick={showMessage}>Show Message</button>
-//     </div>
-//   );
-// };
 
 export default NhmTagList;

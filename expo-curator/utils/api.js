@@ -38,11 +38,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fetchData = fetchData;
 exports.fetchData2 = fetchData2;
+exports.fetchDataPackage = fetchDataPackage;
 exports.fetchData3 = fetchData3;
 var axios_1 = require("axios");
 var getTagList = [];
 var getPackageList = [];
 var getGroupList = [];
+var getMuseumObject = [];
 function fetchData() {
     return __awaiter(this, void 0, void 0, function () {
         var url, response1, error_1;
@@ -96,9 +98,36 @@ function fetchData2() {
     });
 }
 fetchData2();
-function fetchData3() {
+function fetchDataPackage() {
     return __awaiter(this, void 0, void 0, function () {
         var url, response1, error_3;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    url = 'https://collectionapi.metmuseum.org/public/collection/v1';
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, axios_1.default.get(url + '/objects')];
+                case 2:
+                    response1 = _a.sent();
+                    console.log(response1.data);
+                    getMuseumObject = response1.data.objectIDs.slice(0, 10);
+                    console.log("package list" + getMuseumObject);
+                    return [2 /*return*/, getMuseumObject];
+                case 3:
+                    error_3 = _a.sent();
+                    console.error('Error fetching data:', error_3);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+fetchDataPackage();
+function fetchData3() {
+    return __awaiter(this, void 0, void 0, function () {
+        var url, response1, error_4;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -113,8 +142,8 @@ function fetchData3() {
                     console.log("group list" + getGroupList);
                     return [2 /*return*/, getGroupList];
                 case 3:
-                    error_3 = _a.sent();
-                    console.error('Error fetching data:', error_3);
+                    error_4 = _a.sent();
+                    console.error('Error fetching data:', error_4);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }

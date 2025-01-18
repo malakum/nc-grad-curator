@@ -6,6 +6,7 @@ let getTagList: string [] = [];
 let getPackageList: string [] =[];
 
 let getGroupList: string [] = [];
+let getMuseumObject : string|number [] = [];
  async function fetchData(){
   //const url = 'https://api.example.com/data';
   const url = 'https://data.nhm.ac.uk/api/3';
@@ -42,6 +43,26 @@ async function fetchData2(){
 }
 fetchData2();
 
+async function fetchDataPackage(){
+  //const url = 'https://api.example.com/data';
+  const url = 'https://collectionapi.metmuseum.org/public/collection/v1';
+  //https://data.nhm.ac.uk/api/3/dataset/twenty-years-of-big-plant-genera
+  
+  try {
+    const response1 = await axios.get(url+'/objects'); // Make GET request
+    console.log(response1.data);
+    
+     getMuseumObject = response1.data.objectIDs.slice(0,10);
+     console.log("package list"+ getMuseumObject);
+    
+     return getMuseumObject;
+    
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+fetchDataPackage();
+
 async function fetchData3(){
   //const url = 'https://api.example.com/data';
   const url = 'https://data.nhm.ac.uk/api/3';
@@ -62,5 +83,5 @@ fetchData3();
 
 
 
-export  { fetchData ,fetchData2,fetchData3 };
+export  { fetchData ,fetchData2,fetchDataPackage,fetchData3 };
 
