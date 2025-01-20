@@ -13,7 +13,13 @@ const NhmGroupList: React.FC = () => {
     });
   }, []);
 
-  return (
+  return (<div style={{
+    width: '500px',
+    height: '200px',
+    overflowY: 'scroll' ,// Show scrollbar if content overflows
+    border: '1px solid black',
+    marginTop: '20px',
+  }}>
     <ul> groupList 
        {groupList.map((group, index) => (
           <li key={index}>
@@ -23,6 +29,7 @@ const NhmGroupList: React.FC = () => {
         </li>
       ))}
       </ul>
+      </div>
   );
 };
 

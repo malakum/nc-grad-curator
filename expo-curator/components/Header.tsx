@@ -1,7 +1,9 @@
 const Header = () => {
     return (
         
-        <div>Curator Header</div>
+        <div>
+            <h1>Museum Curator </h1>
+            </div>
         
     )
 }

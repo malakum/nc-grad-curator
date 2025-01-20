@@ -5,6 +5,7 @@ import NhmTagList  from './components/NhmTagList';
 import NhmGroupList from './components/NhmGroupList';
 import NhmPackageList from './components/NhmPackageList';
 import MuseumObjects from './components/MuseumObjects';
+import MuseumObjectDetail from './components/MuseumObjectDetail';
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <NhmGroupList />
       <NhmPackageList />
       <MuseumObjects />
+      <MuseumObjectDetail/>
       <StatusBar style="auto" />
     </View>
   );
@@ -26,5 +28,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+   
   },
 });

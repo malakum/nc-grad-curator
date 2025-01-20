@@ -14,6 +14,13 @@ const MuseumObjects: React.FC = () => {
   }, []);
 
   return (
+    <div style={{
+      width: '500px',
+      height: '200px',
+      overflowY: 'scroll' ,// Show scrollbar if content overflows
+      border: '1px solid black',
+      marginTop: '20px',
+    }}>
     <ul> packageList 
        {museumObjects.map((museumObj, index) => (
           <li key={index}>
@@ -23,6 +30,7 @@ const MuseumObjects: React.FC = () => {
         </li>
       ))}
       </ul>
+      </div>
   );
 };
 

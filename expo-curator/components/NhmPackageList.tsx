@@ -14,7 +14,13 @@ const NhmPackageList: React.FC = () => {
     });
   }, []);
 
-  return (
+  return (<div style={{
+    width: '500px',
+    height: '200px',
+    overflowY: 'scroll' ,// Show scrollbar if content overflows
+    border: '1px solid black',
+    marginTop: '20px',
+  }}>
     <ul> packageList 
        {packageList.map((package1, index) => (
           <li key={index}>
@@ -24,6 +30,7 @@ const NhmPackageList: React.FC = () => {
         </li>
       ))}
       </ul>
+      </div>
   );
 };
 
