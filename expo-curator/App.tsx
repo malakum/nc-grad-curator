@@ -6,17 +6,21 @@ import NhmGroupList from './components/NhmGroupList';
 import NhmPackageList from './components/NhmPackageList';
 import MuseumObjects from './components/MuseumObjects';
 import MuseumObjectDetail from './components/MuseumObjectDetail';
+import ArticlesList from './components/ArticlesList';
+import MuseumDepartments from './components/MuseumDepartments';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app!</Text>
       <Header/>
-      <NhmTagList />
+      <MuseumDepartments />
+      {/* <NhmTagList />
       <NhmGroupList />
-      <NhmPackageList />
+      <NhmPackageList /> */}
       <MuseumObjects />
       <MuseumObjectDetail/>
+      {/* <ArticlesList /> */}
       <StatusBar style="auto" />
     </View>
   );

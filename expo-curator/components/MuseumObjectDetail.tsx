@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
 import {fetchDataDetailPackage} from "../utils/api";
+// import { useParams } from "react-router-dom";
+
+// interface RouteParams {
+//   objectIDs: number; // assuming objectIDs is a string, change the type if necessary
+// };
+
 type Museum = {
     objectID:number;
     department: string;
@@ -42,8 +48,10 @@ const MuseumObjectDetail: React.FC = () => {
        objectEndDate: 1901,
    medium: 'Gold',});
 
+  //  const {objectIDs} = useParams(); 
+
   useEffect(() => {
-    fetchDataDetailPackage().then((museumObjectDetailFromApi:any) => {
+    fetchDataDetailPackage(4).then((museumObjectDetailFromApi:any) => {
     console.log('Museum object Detail from api'+museumObjectDetailFromApi);
       setMuseumObjectDetail(museumObjectDetailFromApi);
     });
