@@ -9,15 +9,19 @@ import MuseumObjectDetail from './components/MuseumObjectDetail';
 import ArticlesList from './components/ArticlesList';
 import MuseumDepartments from './components/MuseumDepartments';
 
+
 export default function App() {
+//export  const App: React.FC = () => {
   return (
     <View style={styles.container}>
+       
       <Text>Open up App.tsx to start working on your app!</Text>
       <Header/>
-      <MuseumDepartments />
+      
       {/* <NhmTagList />
       <NhmGroupList />
       <NhmPackageList /> */}
+      <MuseumDepartments />
       <MuseumObjects />
       <MuseumObjectDetail/>
       {/* <ArticlesList /> */}

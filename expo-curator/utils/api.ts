@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-
+//https://api.europeana.eu/record/v2/90402/RP_P_1984_87.json?wskey=okegainerom
 let getTagList: string [] = [];
 
 let getPackageList: string [] =[];
@@ -239,7 +239,7 @@ async function fetchMusObjects(departmentId :number, q:string, isHighlight:boole
       
     
     const response1 = await axios.get(url+`/search${queryString}`); // Make GET request
-   console.log(response1.data);
+   //console.log(response1.data);
     
      const getMusObjects = response1.data;
     
@@ -264,8 +264,65 @@ console.log('departments3');
 //       return res.data;
 //     });
 // };
+ async function fetchEuropeanData(){
+//   const apiEurope = axios.create({
+//  //   baseURL: `https://whimsydate.onrender.com/api`,
+//     baseURL :`https://api.europeana.eu/record/v2/90402`,
+//     headers: {
+//       "Content-Type": "application/json",
+//      // "api-key": API_KEY,
+//      "api-key": "okegainerom",
+//     },
+//   });
+
+   const url2 = `https://api.europeana.eu/record/v2/90402/RP_P_1984_87.json?wskey=okegainerom`;
+  // -key ='okegainerom';
+
+  // async function fetchEurope  ()  {
+  //   return apiEurope
+  //     .get(`/RP_P_1984_87.json`)
+  //     .then(({ data }) => {
+  //       console.log('data'+data);
+
+  //       console.log('data / data '+data.data);
+
+  //       return data.data;
+
+  //     })
+  //     .catch((err) => {
+  //       console.error("API error", err);
+  //       throw err;
+  //     });
+  // };
+        
+  
+  try {
+
+    console.log(url2);
+    const response1 = await axios.get(url2);
+      // headers: {
+      //       "Content-Type": "application/json",
+      //      // "api-key": API_KEY,
+      //      "api-key": "okegainerom",
+      //     },); // Make GET request
+    
+     const getEuropeanData = response1.data;
+     console.log('get European data');
+     console.log(getEuropeanData);
+     console.log('european museum data object agents');
+     console.log(getEuropeanData.object.agents);
+    
+    
+     return getEuropeanData;
+    
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+fetchEuropeanData();
 
 
 
-export  { fetchData ,fetchData2,fetchData3, fetchDataPackage,fetchDataDetailPackage, fetchDepartments, fetchMusObjects };
+
+export  { fetchData ,fetchData2,fetchData3, fetchDataPackage,fetchDataDetailPackage, fetchDepartments, fetchMusObjects ,fetchEuropeanData};
 

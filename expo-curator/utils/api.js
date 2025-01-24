@@ -44,7 +44,9 @@ exports.fetchDataPackage = fetchDataPackage;
 exports.fetchDataDetailPackage = fetchDataDetailPackage;
 exports.fetchDepartments = fetchDepartments;
 exports.fetchMusObjects = fetchMusObjects;
+exports.fetchEuropeanData = fetchEuropeanData;
 var axios_1 = require("axios");
+//https://api.europeana.eu/record/v2/90402/RP_P_1984_87.json?wskey=okegainerom
 var getTagList = [];
 var getPackageList = [];
 var getGroupList = [];
@@ -277,7 +279,6 @@ function fetchMusObjects(departmentId, q, isHighlight) {
                     return [4 /*yield*/, axios_1.default.get(url + "/search".concat(queryString))];
                 case 2:
                     response1 = _a.sent();
-                    console.log(response1.data);
                     getMusObjects = response1.data;
                     console.log(getMusObjects);
                     return [2 /*return*/, getMusObjects];
@@ -292,3 +293,41 @@ function fetchMusObjects(departmentId, q, isHighlight) {
 }
 fetchMusObjects(1, 'sunflower', false);
 console.log('departments3');
+// // Get department by ID
+// export const getDepartmentById = (department_id: number): Promise<SingleDepartmentResponse> => {
+//   return newsApi
+//     .get<SingleDepartmentResponse>(`/departments/${department_id}`)
+//     .then((res: AxiosResponse<SingleDepartmentResponse>) => {
+//       return res.data;
+//     });
+// };
+function fetchEuropeanData() {
+    return __awaiter(this, void 0, void 0, function () {
+        var url2, response1, getEuropeanData, error_8;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    url2 = "https://api.europeana.eu/record/v2/90402/RP_P_1984_87.json?wskey=okegainerom";
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    console.log(url2);
+                    return [4 /*yield*/, axios_1.default.get(url2)];
+                case 2:
+                    response1 = _a.sent();
+                    getEuropeanData = response1.data;
+                    console.log('get European data');
+                    console.log(getEuropeanData);
+                    console.log('european museum data object agents');
+                    console.log(getEuropeanData.object.agents);
+                    return [2 /*return*/, getEuropeanData];
+                case 3:
+                    error_8 = _a.sent();
+                    console.error('Error fetching data:', error_8);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+fetchEuropeanData();

@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import {fetchDataDetailPackage} from "../utils/api";
-
+import {fetchEuropeanData} from "../utils/api";
 // import { useParams } from "react-router-dom";
 
 // interface RouteParams {
 //   objectIDs: number; // assuming objectIDs is a string, change the type if necessary
 // };
 
-
-type Museum = {
+type EuropeanMus = {
     objectID:number;
     department: string;
     objectName :string;
@@ -40,29 +38,25 @@ type Museum = {
 //   medium: 'Gold',
 
 
-const MuseumObjectDetail: React.FC = () => {
+const EuropeanMuseum: React.FC = () => {
   // Typing the state as an array of User objects
-  const [museumObjectDetail, setMuseumObjectDetail] = useState<Museum>({objectID: 0, department :"aa",
-    objectName :'ss',    title:'ss',    artistAlphaSort: 'ss',    artistNationality: 'ss',    
-    artistGender: 'ss',    artistWikidata_URL :'',artistULAN_URL: '',
-   objectDate: '1901',
-      objectBeginDate: 1901,
-       objectEndDate: 1901,
-   medium: 'Gold',});
+//   const [museumObjectDetail, setMuseumObjectDetail] = useState<Museum>({objectID: 0, department :"aa",
+//     objectName :'ss',    title:'ss',    artistAlphaSort: 'ss',    artistNationality: 'ss',    
+//     artistGender: 'ss',    artistWikidata_URL :'',artistULAN_URL: '',
+//    objectDate: '1901',
+//       objectBeginDate: 1901,
+//        objectEndDate: 1901,
+//    medium: 'Gold',});
 
   //  const {objectIDs} = useParams(); 
 
-  useEffect(() => {
-    fetchDataDetailPackage(4).then((museumObjectDetailFromApi:any) => {
-    console.log('Museum object Detail from api'+museumObjectDetailFromApi);
-      setMuseumObjectDetail(museumObjectDetailFromApi);
-    });
-  }, []);
-  
-  if (!museumObjectDetail) {
-    return <p>Loading...</p>;
-  };
-  
+//   useEffect(() => {
+//     fetchEuropeanData().then((europeanDataFromApi:any) => {
+//     console.log('European Data  from api'+europeanDataFromApi);
+//       setMuseumObjectDetail(europeanDataFromApi);
+//     });
+//   }, []);
+
   return (<div style={{
     width: '500px',
     height: '200px',
@@ -70,8 +64,8 @@ const MuseumObjectDetail: React.FC = () => {
     border: '1px solid black',
     marginTop: '20px',
   }}
-  > Object Detail
-   <p>museum Id {museumObjectDetail.objectID}</p>
+  > European Museum 
+   {/* <p>museum Id {museumObjectDetail.objectID}</p>
    <p>museum department {museumObjectDetail.department}</p>
    <p>museum Name {museumObjectDetail.objectName}</p>
    <p>museum title {museumObjectDetail.title}</p>
@@ -87,10 +81,10 @@ const MuseumObjectDetail: React.FC = () => {
       <p>museum medium {museumObjectDetail.medium}</p>
    <a href={museumObjectDetail.artistULAN_URL} target="_blank" rel="noopener noreferrer">
         Visit ULAN Profile
-      </a>
+      </a> */}
    </div>
    
   );
 };
 
-export default MuseumObjectDetail;
+export default EuropeanMuseum;
